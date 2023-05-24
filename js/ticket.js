@@ -5,12 +5,18 @@
 //onclick="resumen()" debe estar en el button resumen
 
 function resumen(){
+   
+     let remanente = document.getElementById('idalerta'); //se fija si hay una alarma remanente
+     if (remanente != null){
+      remanente.remove(); //borra la alarma remanente para que no se acumulen si el usuario no las cierra
+     }
+
     const nombre = document.getElementById('nombre');
     let nom = nombre.value ;
     if (nom == ""){
       mialerta("Debes completar el campo Nombre");
       return 1;
-    }
+    } 
     const apellido = document.getElementById('apellido');
     let ape = apellido.value ;
     if (ape == ""){
@@ -49,11 +55,21 @@ function resumen(){
         inpuTotal.value = "Total a Pagar: $ " + tot.toFixed(2);
   }
 
+  function rese(){ // lo único que hace es borrar una alarma remanente si la hubiere
+   
+    let rem = document.getElementById('idalerta'); 
+    if (rem != null){
+     rem.remove();
+    }
+
+ }
+
   function mialerta(texto){
     
     var alerta = document.createElement('div');
     alerta.classList.add('alert', 'alert-danger', 'mt-3', 'alert-dismissible');
     alerta.setAttribute('role', 'alert');
+    alerta.id = 'idalerta';
 
     // Agregar el contenido al alerta
     var mensaje = document.createTextNode(texto);
