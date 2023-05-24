@@ -4,12 +4,9 @@
 
 //onclick="resumen()" debe estar en el button resumen
 
-function resumen(){
+function resumen(){ //funcion que se ejecuta al hacer click en resumen
    
-     let remanente = document.getElementById('idalerta'); //se fija si hay una alarma remanente
-     if (remanente != null){
-      remanente.remove(); //borra la alarma remanente para que no se acumulen si el usuario no las cierra
-     }
+    rese(); // funcion que borra una alarma remanete si la hubiere
 
     const nombre = document.getElementById('nombre');
     let nom = nombre.value ;
@@ -56,7 +53,7 @@ function resumen(){
   }
 
   function rese(){ // lo único que hace es borrar una alarma remanente si la hubiere
-   
+    // se ejecuta con los botones Borrar y Resumen
     let rem = document.getElementById('idalerta'); 
     if (rem != null){
      rem.remove();
